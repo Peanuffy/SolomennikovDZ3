@@ -47,7 +47,7 @@ def save_to_json(data, filename):
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
-def calculate_statistics(data, field):
+def calculate_statistics_data(data, field):
     values = [item[field] for item in data if field in item]
     if not values:
         return {}
@@ -60,7 +60,7 @@ def calculate_statistics(data, field):
     }
 
 
-def count_frequency(data, field):
+def calculate_frequency(data, field):
     frequency = {}
     for item in data:
         if field in item:
@@ -85,18 +85,18 @@ def main(input_folder, output_folder):
     filtered_data = [item for item in all_data if item.get("views", 0) > 500]
     save_to_json(filtered_data, os.path.join(output_folder, "filtered_by_views.json"))
 
-    pages_stats = calculate_statistics(all_data, "pages")
+    pages_stats = calculate_statistics_data(all_data, "pages")
     save_to_json(pages_stats, os.path.join(output_folder, "pages_statistics.json"))
 
-    category_frequency = count_frequency(all_data, "category")
+    category_frequency = calculate_frequency(all_data, "category")
     save_to_json(
         category_frequency, os.path.join(output_folder, "category_frequency.json")
     )
 
 
 if __name__ == "__main__":
-    input_folder = "C:/MyProject/1"
-    output_folder = "C:/MyProject/1"
+    input_folder = "C:/SolomennikovDZ3/1"
+    output_folder = "C:/SolomennikovDZ3/1"
 
     os.makedirs(output_folder, exist_ok=True)
 
