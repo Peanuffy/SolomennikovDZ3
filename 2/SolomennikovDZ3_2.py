@@ -36,7 +36,7 @@ def save_to_json(data, filename):
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
-def calculate_statistics(data, field):
+def calculate_statistics_data(data, field):
     values = [item[field] for item in data if field in item]
     if not values:
         return {}
@@ -49,7 +49,7 @@ def calculate_statistics(data, field):
     }
 
 
-def count_frequency(data, field):
+def calculate_frequency(data, field):
     frequency = {}
     for item in data:
         if field in item:
@@ -74,17 +74,17 @@ def main(input_folder, output_folder):
     filtered_data = [item for item in all_data if item.get("sim", 0) > 2]
     save_to_json(filtered_data, os.path.join(output_folder, "filtered_by_sim.json"))
 
-    acc_stats = calculate_statistics(all_data, "acc")
+    acc_stats = calculate_statistics_data(all_data, "acc")
     save_to_json(acc_stats, os.path.join(output_folder, "acc_statistics.json"))
 
-    resolution_frequency = count_frequency(all_data, "resolution")
+    resolution_frequency = calculate_frequency(all_data, "resolution")
     save_to_json(
         resolution_frequency, os.path.join(output_folder, "resolution_frequency.json")
     )
 
 
 if __name__ == "__main__":
-    input_folder = "C:/ProjectsPython/Vanya/2"
+    input_folder = "C:/SolomennikovDZ3_2"
     output_folder = "C:/ProjectsPython/Vanya/2"
 
     os.makedirs(output_folder, exist_ok=True)
