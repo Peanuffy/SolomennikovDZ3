@@ -75,8 +75,8 @@ def main(input_folder, output_folder):
 
 
 if __name__ == "__main__":
-    input_folder = "C:/MyProject/4"
-    output_folder = "C:/MyProject/4"
+    input_folder = "C:/SolomennikovDZ3/4"
+    output_folder = "C:/SolomennikovDZ3/4"
 
     os.makedirs(output_folder, exist_ok=True)
 
