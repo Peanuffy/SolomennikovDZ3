@@ -59,7 +59,7 @@ def calculate_word_frequency(products):
 
 
 def main():
-    file_path = "C:/MyProject/5/Интернет-магазин натуральных сыров и фермерских продуктов от Никольской Слободы. Доставка в Екатеринбург.html"
+    file_path = "C:/SolomennikovDZ3/5/Интернет-магазин натуральных сыров и фермерских продуктов от Никольской Слободы. Доставка в Екатеринбург.html"
     products = parse_html_file(file_path)
 
     with open("products.json", "w", encoding="utf-8") as file:
