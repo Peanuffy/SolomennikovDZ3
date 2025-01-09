@@ -67,10 +67,10 @@ def main(input_folder, output_folder):
     filtered_data = [item for item in all_data if item.get("rating", 0) > 2.5]
     save_to_json(filtered_data, os.path.join(output_folder, "filtered_by_rating.json"))
 
-    reviews_stats = calculate_statistics(all_data, "reviews")
+    reviews_stats = calculate_statistics_data(all_data, "reviews")
     save_to_json(reviews_stats, os.path.join(output_folder, "reviews_statistics.json"))
 
-    color_frequency = count_frequency(all_data, "color")
+    color_frequency = calculate_frequency(all_data, "color")
     save_to_json(color_frequency, os.path.join(output_folder, "color_frequency.json"))
 
 
